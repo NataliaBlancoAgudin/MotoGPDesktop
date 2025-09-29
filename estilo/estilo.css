@@ -1,2 +1,30 @@
 /* Natalia Blanco Agudín UO295340 */
 /* Estilos generales del proyecto MotoGP-Desktop */
+
+/* ESPECIFICIDAD: 001*/
+/* Reglas sobre el elemento body; estas reglas las hereadan todos los elementos de la pagina*/
+body {
+    background-color: #E6F0FF;  /* Fondo: Azul clarito*/
+    font-family: Arial;
+    color: #002b74              /* Texto: Azul oscuro*/
+}
+
+/* ESPECIFICIDAD: 001*/
+header {
+    background-color: #002b74;  /* Fondo: Azul oscuro*/
+}
+
+/* ESPECIFICIDAD: 001*/
+h1 {
+    color: #E6F0FF;             /* Texto: Azul clarito*/
+}
+
+/* ESPECIFICIDAD: 002*/
+nav a {
+    color: #E6F0FF;             /* Texto: Azul clarito*/
+}
+
+nav a:hover {
+    color: #FFAF7A;             /* Texto: Azul clarito*/
+}
+

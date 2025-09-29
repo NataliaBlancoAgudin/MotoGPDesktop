@@ -5,19 +5,21 @@
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
-    <title>MotoGP Piloto</title>                                             <!-- Titulo -->
-    <meta name="author" content="Natalia Blanco Agudín" />                   <!-- Autora -->
-    <meta name="description" content="Página del Piloto de MotoGP" />        <!-- Descripcion-->
-    <meta name="keywords" content="MotoGP, Piloto" />                        <!-- Palabras importantes-->
+    <title>MotoGP Piloto</title> <!-- Titulo -->
+    <meta name="author" content="Natalia Blanco Agudín" /> <!-- Autora -->
+    <meta name="description" content="Página del Piloto de MotoGP" /> <!-- Descripcion-->
+    <meta name="keywords" content="MotoGP, Piloto" /> <!-- Palabras importantes-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Ventana -->
-    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />       <!-- Enlazar hoja de estilos -->
-    <link rel="icon" href="multimedia/favicon.ico"/>                         <!-- Favicon -->
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" /> <!-- Enlazar hoja de estilos -->
+    <link rel="icon" href="multimedia/favicon.ico" /> <!-- Favicon -->
 </head>
 
 <body>
     <header>
         <!-- Datos con el contenidos que aparece en el navegador -->
-        <h1>MotoGP Desktop</h1>
+        <a href="index.html" title="Página de inicio">
+            <h1>MotoGP Desktop</h1>
+        </a>
         <!-- Menú de navegación de la aplicación-->
         <nav>
             <a href="index.html" title="Página de inicio">Inicio</a>
@@ -29,6 +31,9 @@
             <a href="ayuda.html" title="Página de ayuda">Ayuda</a>
         </nav>
     </header>
+
+    <!-- Migas de navegación -->
+    <p>Estas en: <a href="index.html" title="Página de inicio">Inicio</a> >> Piloto</p>
 
     <main>
         <h2>Miguel Oliveira</h2>
@@ -47,6 +52,17 @@
                 convertido en referente en su país y sigue persiguiendo nuevos éxitos en la temporada actual</p>
         </section>
 
+        <picture>
+            <!-- Moviles -->
+            <source srcset="multimedia/MiguelOliveira_movil.jpg" media="(max-width: 465px)">
+            <!-- Tablets -->
+            <source srcset="multimedia/MiguelOliveira_tablet.jpg" media="(max-width: 799px)">
+            <!-- Monitor -->
+            <source srcset="multimedia/MiguelOliveira_monitor.jpg" media="(min-width: 800px)">
+
+            <img alt="Miguel Oliveira" src="multimedia/MiguelOliveira.jpg" />
+        </picture>
+
         <section>
             <h3>Datos personales</h3>
             <ul>
@@ -59,16 +75,27 @@
             </ul>
         </section>
 
-        <picture>
-            <!-- Moviles -->
-            <source srcset="multimedia/MiguelOliveira_movil.jpg" media="(max-width: 465px)">
-            <!-- Tablets -->
-            <source srcset="multimedia/MiguelOliveira_tablet.jpg" media="(max-width: 799px)">
-            <!-- Monitor -->
-            <source srcset="multimedia/MiguelOliveira_monitor.jpg" media="(min-width: 800px)">
+        <video controls>
+            <source src="multimedia/VideoMiguelOliveira.webm" type="video/webm">
+            <source src="multimedia/VideoMiguelOliveira.mp4" type="video/mp4">
+        </video>
 
-            <img alt="Miguel Oliveira" src="multimedia/MiguelOliveira.jpg" />
-        </picture>
+        <section>
+            <h3>Anteriores equipos</h3>
+            <ol>
+                <li>Andalucía-Cajasol (125cc) - 2011</li>
+                <li>Estrella Galicia 0,0 - Moto3, 2012</li>
+                <li>Mahindra Racing - Moto3, 2013-2014</li>
+                <li>Red Bull KTM Ajo - Moto3, 2015</li>
+                <li>Leopard Racing - Moto2, 2016</li>
+                <li>Red Bull Ajo - Moto2, 2017-2018</li>
+                <li>Red Bull KTM Tech 3 - MotoGP, 2019-2020</li>
+                <li>Red Bull KTML Factory Racing - MotoGP, 2021-2022</li>
+                <li>CryptoDATA RNF / RNF Aprilia - MotoGP, 2023</li>
+                <li>Trackhouse Racing MotoGP - MotoGP, 2024</li>
+                <li>Prima Pramac Yamaha MotoGP - MotoGP, 2025-...</li>
+            </ol>
+        </section>
 
         <section>
             <h3>Información adicional del piloto</h3>
@@ -95,23 +122,6 @@
             <p>Fuera de los circuitos, Miguel Oliveira impulsa proyectos educativos y deportivos como la “Oliveira Cup”,
                 una
                 escuela-trofeo para jóvenes pilotos entre los 10 y 14 años, que busca descubrir nuevos talentos.</p>
-        </section>
-
-        <section>
-            <h3>Anteriores equipos</h3>
-            <ol>
-                <li>Andalucía-Cajasol (125cc) - 2011</li>
-                <li>Estrella Galicia 0,0 - Moto3, 2012</li>
-                <li>Mahindra Racing - Moto3, 2013-2014</li>
-                <li>Red Bull KTM Ajo - Moto3, 2015</li>
-                <li>Leopard Racing - Moto2, 2016</li>
-                <li>Red Bull Ajo - Moto2, 2017-2018</li>
-                <li>Red Bull KTM Tech 3 - MotoGP, 2019-2020</li>
-                <li>Red Bull KTML Factory Racing - MotoGP, 2021-2022</li>
-                <li>CryptoDATA RNF / RNF Aprilia - MotoGP, 2023</li>
-                <li>Trackhouse Racing MotoGP - MotoGP, 2024</li>
-                <li>Prima Pramac Yamaha MotoGP - MotoGP, 2025-...</li>
-            </ol>
         </section>
 
         <aside>
