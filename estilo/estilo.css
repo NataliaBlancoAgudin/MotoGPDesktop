@@ -5,26 +5,36 @@
 /* Reglas sobre el elemento body; estas reglas las hereadan todos los elementos de la pagina*/
 body {
     background-color: #E6F0FF;  /* Fondo: Azul clarito*/
-    font-family: Arial;
+    font-family: Arial, Arial, Helvetica, sans-serif;
     color: #002b74              /* Texto: Azul oscuro*/
 }
 
 /* ESPECIFICIDAD: 001*/
 header {
     background-color: #002b74;  /* Fondo: Azul oscuro*/
-}
-
-/* ESPECIFICIDAD: 001*/
-h1 {
-    color: #E6F0FF;             /* Texto: Azul clarito*/
+    /* advertencia de color de texto porque se establece en la regla header a */
 }
 
 /* ESPECIFICIDAD: 002*/
-nav a {
+header a, h1{
     color: #E6F0FF;             /* Texto: Azul clarito*/
+    /* advertencia de color de fondo porque se establece en la regla header (header a)*/
+    /* advertencia de color de fondo porque se establece en la regla header (h1)*/
 }
 
+/* ESPECIFICIDAD: 012*/
 nav a:hover {
     color: #FFAF7A;             /* Texto: Azul clarito*/
+    /* advertencia de color por herencia de color de fondo de header */
 }
 
+/* ESPECIFICIDAD: 012*/
+nav a.active {
+    color: #FFAF7A
+    /* advertencia de color por herencia de color de fondo de header */
+}
+
+/* ESPECIFICIDAD: 002*/
+header + p {
+    font-size: 0.8em;
+}

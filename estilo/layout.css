@@ -1,0 +1,27 @@
+/* Natalia Blanco Agudín UO295340 */
+/* Estilos para el posicionamiento del proyecto MotoGP-Desktop */
+
+/* ESPECIFICIDAD: 001*/
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ESPECIFICIDAD: 001*/
+nav {
+    display: flex;
+    flex-direction: row;
+    gap: 2.5em;
+}
+
+
+/* MEDIAS QUERIES */
+@media (min-width: 320px) and (max-width: 799px) {
+    /* ESPECIFICIDAD: 001*/
+    header {
+        /* No tenemos que poner display:flex porque ya lo tiene de normal*/
+        flex-direction: column;
+    }
+} 
