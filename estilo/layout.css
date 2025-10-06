@@ -7,6 +7,7 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 0.5em 2em;
 }
 
 /* ESPECIFICIDAD: 001*/
@@ -19,9 +20,21 @@ nav {
 
 /* MEDIAS QUERIES */
 @media (min-width: 320px) and (max-width: 799px) {
-    /* ESPECIFICIDAD: 001*/
-    header {
+    /* ESPECIFICIDAD: 001, ESPECIFICIDAD: 001*/
+    header, nav {
         /* No tenemos que poner display:flex porque ya lo tiene de normal*/
         flex-direction: column;
+    }
+
+    /* ESPECIFICIDAD: 002*/
+    /* Estilos para las migas de navegación */
+    header + p {
+        display: none;
+    }
+
+    /* ESPECIFICIDAD: 001, ESPECIFICIDAD: 001 */
+    video, audio {
+        width: 100%;
+        height: auto;
     }
 } 

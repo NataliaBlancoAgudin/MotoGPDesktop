@@ -1,6 +1,13 @@
 /* Natalia Blanco Agudín UO295340 */
 /* Estilos generales del proyecto MotoGP-Desktop */
 
+/* Colores:
+    - color fondo: #E6F0FF (azul clarito)
+    - color texto: #002b74 (azul oscuro)
+    - color texto nav a activo: #FFAF7A (naranja clarito)
+    - color fondo nav a encima: #011840 (azul muy oscuro)
+*/
+
 /* ESPECIFICIDAD: 001*/
 /* Reglas sobre el elemento body; estas reglas las hereadan todos los elementos de la pagina*/
 body {
@@ -15,26 +22,36 @@ header {
     /* advertencia de color de texto porque se establece en la regla header a */
 }
 
-/* ESPECIFICIDAD: 002*/
+/* ESPECIFICIDAD: 002; ESPECIFICIDAD: 001*/
 header a, h1{
     color: #E6F0FF;             /* Texto: Azul clarito*/
     /* advertencia de color de fondo porque se establece en la regla header (header a)*/
     /* advertencia de color de fondo porque se establece en la regla header (h1)*/
+    text-decoration-line: none;
+}
+
+/* ESPECIFICIDAD: 002*/
+nav a {
+    padding: 0.125rem;
+    transition: background-color 0.3s ease;
 }
 
 /* ESPECIFICIDAD: 012*/
 nav a:hover {
-    color: #FFAF7A;             /* Texto: Azul clarito*/
-    /* advertencia de color por herencia de color de fondo de header */
+    background-color: #011840;  /* Fondo: Azul muy oscuro*/
+    /* advertencia de color de texto porque se establece en la regla header */
+    border-radius: 0.25rem;
+    text-decoration-line: underline;
 }
 
 /* ESPECIFICIDAD: 012*/
 nav a.active {
-    color: #FFAF7A
+    color: #FFAF7A              /* Texto: Naranja clarito*/
     /* advertencia de color por herencia de color de fondo de header */
 }
 
 /* ESPECIFICIDAD: 002*/
+/* Estilos para las migas de navegación */
 header + p {
     font-size: 0.8em;
 }
