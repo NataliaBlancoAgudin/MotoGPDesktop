@@ -6,6 +6,10 @@
     - color texto: #002b74 (azul oscuro)
     - color texto nav a activo: #FFAF7A (naranja clarito)
     - color fondo nav a encima: #011840 (azul muy oscuro)
+    - color texto de a (http) sin visitar: #011840 (azul oscuro)
+    - color texto de a (http) visitado: #740c3e (rojo burdeos)
+    - color fondo de a (http) encima: #011840 (azul oscuro)
+    - color texto de a (http) encima: #E6F0FF (azul clarito)
 */
 
 /* ESPECIFICIDAD: 001*/
@@ -54,4 +58,81 @@ nav a.active {
 /* Estilos para las migas de navegación */
 header + p {
     font-size: 0.8em;
+}
+
+/*------------------ estilos para los enlaces http ------------------- */
+/* ESPECIFICIDAD: 021*/
+/* Estilos para los enlaces que empiecen con http (los enlaces externos) 
+   que aún no han sido visitados */
+a[href^="http"]:link{
+    color: #011840;         /* Texto: Azul muy oscuro */
+    /* advertencia de color por herencia de color de fondo de body */
+    text-decoration-line: underline;
+}
+
+/* ESPECIFICIDAD: 021*/
+/* Estilos para los enlaces que empiecen con http (los enlaces externos) 
+   que ya han sido visitados */
+a[href^="http"]:visited{
+    color: #740c3e;     /* Texto: Rojo burdeos*/
+    /* advertencia de color por herencia de color de fondo de body */
+}
+
+/* ESPECIFICIDAD: 021*/
+/* Estilos para los enlaces que empiecen con http (los enlaces externos) 
+   cuando el usuario pasa el ratón */
+a[href^="http"]:hover {
+    background-color: #011840;  /* Fondo Azul muy oscuro */
+    color: #E6F0FF;             /* Texto: Azul clarito*/
+    border-radius: 0.25rem;
+}
+
+/*------------------ estilos para las listas ------------------- */
+/* ESPECIFICIDAD: 001*/
+ul { 
+    list-style-type: '🏍️'; 
+}
+
+/* ESPECIFICIDAD: 002; ESPECIFICIDAD: 002*/
+li::marker{
+    font-weight: bold;
+}
+
+/* ESPECIFICIDAD: 002; ESPECIFICIDAD: 002*/
+dl>dt{
+    font-weight: bold;
+    text-decoration-line: underline;
+}
+
+/*------------------ estilos para la tabla ------------------- */
+/* ESPECIFICIDAD: 001 */
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    text-align: center;
+}
+
+/* ESPECIFICIDAD: 001 */
+caption{
+    caption-side: top;
+    font-weight: bold;
+    font-size: 1em;
+    color:#011840;      /* Texto: Azul muy oscuro */
+    /* advertencia de color por herencia de color de fondo de body */
+    margin-bottom: 0.5em;
+}
+
+/* ESPECIFICIDAD: 001 */
+th{
+    background-color: #002b74;          /* Fondo: Azul oscuro*/
+    color:#E6F0FF;
+    padding:0.75em;
+    border: 0.1rem solid #011840;       /* Borde: Azul muy oscuro */  
+}
+
+/* ESPECIFICIDAD: 001 */
+td{
+    padding: 0.75em;
+    border: 0.1rem solid #011840;   /* Borde: Azul muy oscuro */
 }
