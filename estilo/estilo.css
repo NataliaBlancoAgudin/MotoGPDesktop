@@ -12,6 +12,17 @@
     - color texto de a (http) encima: #E6F0FF (azul clarito)
 */
 
+/* CONTRASTES:
+        Descripción:                            Color 1:                    Color 2:            Contrast Radio:
+      Página principal                      Fondo: #E6F0FF              Texto: #002b74              11.43:1
+      Barra de navegación (a no activo)     Fondo: #002b74              Texto: #E6F0FF              11.43:1
+      Barra de navegación (a activo)        Fondo: #002b74              Texto: #FFAF7A              7.3:1
+      Barra de navegación (a encima)        Fondo: #011840              Texto: #E6F0FF              15.15:1
+      Enlaces a (sin visitar)               Fondo: #011840              Texto: #E6F0FF              15.15:1
+      Enlaces a (vistado)                   Fondo: #E6F0FF              Texto: #740c3e              9.79:1
+      Enlaces a (encima)                    Fondo: #011840              Texto: #E6F0FF              15.15:1
+*/
+
 /* ESPECIFICIDAD: 001*/
 /* Reglas sobre el elemento body; estas reglas las hereadan todos los elementos de la pagina*/
 body {
