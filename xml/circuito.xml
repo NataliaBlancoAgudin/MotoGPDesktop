@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE circuitos SYSTEM "circuito.dtd">
+<circuitos>
+    <circuito>
+        <nombre>Red Bull Ring - Spielberg</nombre>
+
+        <longitudCircuito unidades="metros">4348</longitudCircuito>
+        <anchura unidades="metros">12</anchura>
+
+        <fecha>2025-08-17</fecha>
+        <horaSp>14:00:00 CEST</horaSp>
+
+        <numeroVueltas>28</numeroVueltas>
+
+        <localidad>Spielberg</localidad>
+        <pais>Austria</pais>
+
+        <patrocinador>bwin</patrocinador>
+
+        <bibliografia>
+            <referencia descripcion="Calendario oficial de MotoGP">https://www.motogp.com/es/calendar/2025/event/austria/2691a49e-a593-4119-8fe4-826017d5f2dd?tab=overview</referencia>
+            <referencia descripcion="Entradas para el circuito">https://tickets.motogp.com/es/21021-austria/</referencia>
+            <referencia descripcion="Que saber antes de ir">https://www.tripadvisor.es/Attraction_Review-g2251638-d4584201-Reviews-Red_Bull_Ring-Spielberg_Styria.html</referencia>
+        </bibliografia>
+
+        <galeria>
+            <foto descripcion="Foto Circuito">RedBullRing-Spielberg.jpg</foto>
+            <foto descripcion="Dibujo circuito">RedBullRing-Spielberg-circuito.jpg</foto>
+        </galeria>
+
+        <videos>
+            <video descripcion="Video explicativo">RedBullRing-Spilberg.mp4</video>
+        </videos>
+
+        <puntoOrigen>
+            <longitud unidades="grados">14,7652163</longitud>
+            <latitud unidades="grados">47,2200295</latitud>
+            <altitud unidades="metros">678,1098045</altitud>
+        </puntoOrigen>
+
+        <tramos>
+            <tramo>
+                <distancia unidades="metros">160,77</distancia>
+                <coordenadas>
+                    <longitud unidades="grados">14,7631785</longitud>
+                    <latitud unidades="grados">47,2196379</latitud>
+                    <altitud unidades="metros">680,2439272</altitud>
+                </coordenadas>
+                <sector>1</sector>
+            </tramo>
+
+            <tramo>
+                <distancia unidades="metros">151,66</distancia>
+                <coordenadas>
+                    <longitud unidades="grados">14,7612690</longitud>
+                    <latitud unidades="grados">47,2192722</latitud>
+                    <altitud unidades="metros">691,3542241</altitud>
+                </coordenadas>
+                <sector>1</sector>
+            </tramo>
+        </tramos>
+
+        <vencedor>
+            <nombre>Marc Márquez</nombre>
+            <duracion>42:17:870</duracion>
+        </vencedor>
+
+        <clasificacionMundial>
+            <posicion numero="1">
+                <nombre>Marc Márquez</nombre>
+                <puntos>418</puntos>
+                <pais>ESP</pais>
+            </posicion>
+
+            <posicion numero="2">
+                <nombre>Álex Márquez</nombre>
+                <puntos>276</puntos>
+                <pais>ESP</pais>
+            </posicion>
+
+            <posicion numero="3">
+                <nombre>Franceso Bagnaia</nombre>
+                <puntos>221</puntos>
+                <pais>ITA</pais>
+            </posicion>
+
+        </clasificacionMundial>
+    </circuito>
+</circuitos>

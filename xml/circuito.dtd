@@ -1,0 +1,63 @@
+<!ELEMENT circuitos (circuito+)>
+<!ELEMENT circuito (nombre, longitudCircuito, anchura, fecha, horaSp, 
+                    numeroVueltas, localidad, pais, patrocinador, 
+                    bibliografia, galeria, videos, puntoOrigen, tramos,
+                    vencedor, clasificacionMundial)>
+
+<!-- Texto simple-->
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT horaSp (#PCDATA)>
+<!ELEMENT numeroVueltas (#PCDATA)>
+<!ELEMENT localidad (#PCDATA)>
+<!ELEMENT pais (#PCDATA)>
+<!ELEMENT patrocinador (#PCDATA)>
+
+<!-- dimensiones con atributos unidades -->
+<!ELEMENT longitudCircuito (#PCDATA)>
+<!ATTLIST longitudCircuito unidades CDATA #REQUIRED>
+
+<!ELEMENT anchura (#PCDATA)>
+<!ATTLIST anchura unidades CDATA #REQUIRED>
+
+<!-- bibliografia: al menos 3 referencias -->
+<!ELEMENT bibliografia (referencia+)>
+<!ELEMENT referencia (#PCDATA)>
+<!ATTLIST referencia descripcion CDATA #REQUIRED>
+
+<!-- galeria de fotos: minimo 1 maximo 5 -->
+<!ELEMENT galeria (foto+)>
+<!ELEMENT foto (#PCDATA)>
+<!ATTLIST foto descripcion CDATA #REQUIRED>
+
+<!-- galeria de videos: minimo 1 maximo 5 -->
+<!ELEMENT videos (video+)>
+<!ELEMENT video (#PCDATA)>
+<!ATTLIST video descripcion CDATA #REQUIRED>
+
+<!-- punto origen (coordenadas)-->
+<!ELEMENT puntoOrigen (longitud, latitud, altitud)>
+<!ELEMENT longitud (#PCDATA)>
+<!ATTLIST longitud unidades CDATA #REQUIRED>
+<!ELEMENT latitud (#PCDATA)>
+<!ATTLIST latitud unidades CDATA #REQUIRED>
+<!ELEMENT altitud (#PCDATA)>
+<!ATTLIST altitud unidades CDATA #REQUIRED>
+
+<!-- tramos -->
+<!ELEMENT tramos (tramo+)>
+<!ELEMENT tramo (distancia, coordenadas, sector)>
+<!ELEMENT distancia (#PCDATA)>
+<!ATTLIST distancia unidades CDATA #REQUIRED>
+<!ELEMENT coordenadas (longitud, latitud, altitud)>
+<!ELEMENT sector (#PCDATA)>
+
+<!-- Resultado de la carrera -->
+<!ELEMENT vencedor (nombre, duracion)>
+<!ELEMENT duracion (#PCDATA)>
+
+<!-- Clasificacion mundial -->
+<!ELEMENT clasificacionMundial (posicion+)>
+<!ELEMENT posicion (nombre, puntos, pais)>
+<!ATTLIST posicion numero CDATA #REQUIRED>
+<!ELEMENT puntos (#PCDATA)>
