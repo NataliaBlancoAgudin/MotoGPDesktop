@@ -54,22 +54,36 @@
 	<xs:element name="longitudCircuito">
 		<xs:complexType>
 			<xs:simpleContent>
-				<xs:extension base="xs:float">
+				<xs:extension base="tipoLongitudCircuito">
 					<xs:attribute name="unidades" type="xs:string" use="required" />
 				</xs:extension>
 			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
 
+	<xs:simpleType name="tipoLongitudCircuito">
+		<xs:restriction base="xs:float">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="20000"/>
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:element name="anchura">
 		<xs:complexType>
 			<xs:simpleContent>
-				<xs:extension base="xs:float">
+				<xs:extension base="tipoAnchura">
 					<xs:attribute name="unidades" type="xs:string" use="required" />
 				</xs:extension>
 			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
+
+	<xs:simpleType name="tipoAnchura">
+		<xs:restriction base="xs:float">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
 
 	<xs:element name="bibliografia">
 		<xs:complexType>
@@ -138,32 +152,53 @@
 	<xs:element name="longitud">
 		<xs:complexType>
 			<xs:simpleContent>
-				<xs:extension base="xs:float">
+				<xs:extension base="tipoLongitud">
 					<xs:attribute name="unidades" type="xs:string" use="required" />
 				</xs:extension>
 			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
+
+	<xs:simpleType name="tipoLongitud">
+		<xs:restriction base="xs:float">
+			<xs:minInclusive value="-180"/>
+			<xs:maxInclusive value="80"/>
+		</xs:restriction>
+	</xs:simpleType>
 
 	<xs:element name="latitud">
 		<xs:complexType>
 			<xs:simpleContent>
-				<xs:extension base="xs:float">
+				<xs:extension base="tipoLatitud">
 					<xs:attribute name="unidades" type="xs:string" use="required" />
 				</xs:extension>
 			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
 
+	<xs:simpleType name="tipoLatitud">
+		<xs:restriction base="xs:float">
+			<xs:minInclusive value="-90"/>
+			<xs:maxInclusive value="90"/>
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:element name="altitud">
 		<xs:complexType>
 			<xs:simpleContent>
-				<xs:extension base="xs:float">
+				<xs:extension base="tipoAltitud">
 					<xs:attribute name="unidades" type="xs:string" use="required" />
 				</xs:extension>
 			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
+
+	<xs:simpleType name="tipoAltitud">
+		<xs:restriction base="xs:float">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="5000"/>
+		</xs:restriction>
+	</xs:simpleType>
 
 	<xs:element name="tramos">
 		<xs:complexType>
