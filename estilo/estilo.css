@@ -101,11 +101,6 @@ a[href^="http"]:hover {
 }
 
 /*------------------ estilos para las listas ------------------- */
-/* ESPECIFICIDAD: 001*/
-ul { 
-    list-style-type: '🏍️'; 
-}
-
 /* ESPECIFICIDAD: 002; ESPECIFICIDAD: 002*/
 li::marker{
     font-weight: bold;

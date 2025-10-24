@@ -24,12 +24,12 @@
         </bibliografia>
 
         <galeria>
-            <foto descripcion="Foto Circuito">RedBullRing-Spielberg.jpg</foto>
-            <foto descripcion="Dibujo circuito">RedBullRing-Spielberg-circuito.jpg</foto>
+            <foto descripcion="Foto Circuito">RedBullRing-Spielberg</foto>
+            <foto descripcion="Dibujo circuito">RedBullRing-Spielberg-circuito</foto>
         </galeria>
 
         <videos>
-            <video descripcion="Video explicativo">RedBullRing-Spilberg.mp4</video>
+            <video descripcion="Video explicativo">RedBullRing-Spielberg</video>
         </videos>
 
         <puntoOrigen>
