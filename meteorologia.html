@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" /> <!-- Enlazar hoja de estilos -->
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" /> <!-- Enlazar hoja de estilos -->
     <link rel="icon" href="multimedia/favicon.ico" /> <!-- Favicon -->
+    <script src="js/ciudad.js"></script>
 </head>
 
 <body>
@@ -37,7 +38,24 @@
     <p>Estas en: <a href="index.html" title="Página de inicio">Inicio</a> >> <strong>Meteorología</strong></p>
 
     <h2>Meteorología de MotoGP-Desktop</h2>
-    <p>En desarrollo</p>
+    <section>
+        <h3>Información sobre la Ciudad</h3>
+        <p>Nombre de la Ciudad: </p>
+        <p>Nombre del País: </p>
+        <p>Información adicional: </p>
+    </section>
+    <script>
+        var spielberg = new Ciudad("Spielberg", "Austria", "Spielberger");
+        spielberg.setInfoSecundaria(5383, 47.21740670513578, 14.77953909005253);
+
+        var elementoP = document.querySelectorAll("p");
+        elementoP[1].textContent += ` ${spielberg.getNombre() }`
+        elementoP[2].textContent += ` ${spielberg.getPais() }`
+
+        document.write(spielberg.getInfoSecundaria());
+
+        spielberg.escribirCoordenadas();
+    </script>
 </body>
 
 </html>
