@@ -7,7 +7,7 @@ class Memoria {
     }
 
     // 
-    flipCard(card){
-        card.dataset.state="flip";
+    voltearCarta(carta){
+        carta.dataset.estado="volteado";
     }
 }

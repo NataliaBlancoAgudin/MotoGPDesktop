@@ -38,7 +38,10 @@ class Ciudad {
 
     // Método que escribe en el documento la información de las coordenadas del punto
     escribirCoordenadas(){
-        document.write(`
-            <p>Coordenadas: Latitud ${this.puntoCentral.lat}, Longitud ${this.puntoCentral.lon}`);
+        const p = document.createElement("p");
+        p.textContent = `Coordenadas: Latitud ${this.puntoCentral.lat}, Longitud ${this.puntoCentral.lon}`
+
+        const main = document.querySelector("main");
+        main.appendChild(p);
     }
 }

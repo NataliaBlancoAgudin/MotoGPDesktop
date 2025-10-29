@@ -63,8 +63,9 @@ nav a:hover {
 
 /* ESPECIFICIDAD: 012*/
 nav a.active {
-    color: #FFAF7A              /* Texto: Naranja clarito*/
+    color: #FFAF7A;              /* Texto: Naranja clarito*/
     /* advertencia de color por herencia de color de fondo de header */
+    font-weight: bold;
 }
 
 /* ESPECIFICIDAD: 002*/
