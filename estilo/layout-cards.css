@@ -22,6 +22,7 @@ main h2 {
 
 /* MEDIAS QUERIES */
 @media (min-width: 320px) and (max-width: 799px) {
+
     /* ESPECIFICIDAD: 001*/
     main {
         display: grid;
@@ -32,7 +33,7 @@ main h2 {
 
     /* ESPECIFICIDAD: 002*/
     main article {
-        width: 30%;
-        height: 8em;
+        width: 35vw;
+        height: 7em;
     }
 }

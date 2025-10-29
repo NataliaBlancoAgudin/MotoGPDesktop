@@ -29,7 +29,7 @@
 /* Reglas sobre el elemento body; estas reglas las hereadan todos los elementos de la pagina*/
 body {
     background-color: #E6F0FF;  /* Fondo: Azul clarito*/
-    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-family: "Trebuchet MS", sans-serif;
     color: #002b74              /* Texto: Azul oscuro*/
 }
 
