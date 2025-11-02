@@ -28,12 +28,8 @@ main h2 {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         row-gap: 0.3rem;
+        column-gap: 0.05em;
         max-width: 90vw;
-    }
-
-    /* ESPECIFICIDAD: 002*/
-    main article {
-        width: 35vw;
-        height: 7em;
+        justify-items: center;
     }
 }
