@@ -5,14 +5,15 @@
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
-    <title>MotoGP Juegos</title> <!-- Titulo -->
+    <title>MotoGP Cronómetro</title> <!-- Titulo -->
     <meta name="author" content="Natalia Blanco Agudín" /> <!-- Autora -->
-    <meta name="description" content="Página de juegos de MotoGP" /> <!-- Descripcion-->
-    <meta name="keywords" content="MotoGP, Juegos" /> <!-- Palabras importantes-->
+    <meta name="description" content="Página de meterología de MotoGP" /> <!-- Descripcion-->
+    <meta name="keywords" content="MotoGP, Juegos, Cronómetro" /> <!-- Palabras importantes-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Ventana -->
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" /> <!-- Enlazar hoja de estilos -->
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" /> <!-- Enlazar hoja de estilos -->
     <link rel="icon" href="multimedia/favicon.ico" /> <!-- Favicon -->
+    <script src="js/cronometro.js"></script>
 </head>
 
 <body>
@@ -34,24 +35,21 @@
     </header>
 
     <!-- Migas de navegación -->
-    <p>Estas en: <a href="index.html" title="Página de inicio">Inicio</a> >> <strong>Juegos</strong></p>
+    <p>Estas en: <a href="index.html" title="Página de inicio">Inicio</a> >> 
+        <a href="juegos.html" title="Juegos de la aplicación">Juegos</a> >> 
+        <strong>Cronómetro</strong>
+    </p>
 
     <main>
-        <h2>Juegos de MotoGP-Desktop</h2>
-        <ul>
-            <li>
-                <a href="memoria.html" title="Juego de memoria con cartas">
-                    Juego de memoria con cartas
-                </a>
-            </li>
-
-            <li>
-                <a href="cronometro.html" title="Cronómetro">
-                    Cronómetro
-                </a>
-            </li>
-        </ul>
+        <p>00:00.0</p>
+        <button onclick="cronometro.arrancar()">Arrancar</button>
+        <button onclick="cronometro.parar()">Parar</button>
+        <button onclick="cronometro.reiniciar()">Reiniciar</button>
     </main>
-</body>
+    
+    <script>
+        const cronometro = new Cronometro();
+    </script>
 
+</body>
 </html>
