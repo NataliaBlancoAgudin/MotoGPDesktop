@@ -4,10 +4,11 @@ class Memoria {
     // Constructor sin parametros
     constructor(){
         this.reiniciarAtributos();
-
         this.barajarCartas();
-
         this.tablero_bloqueado = false;
+
+        this.cronometro = new Cronometro();
+        this.cronometro.arrancar();
     }
 
     // Voltea las carta pasada como parametro
@@ -78,7 +79,7 @@ class Memoria {
         const todasReveladas = Array.from(cartas).every(carta => carta.dataset.estado === "revelada");
 
         if(todasReveladas){
-            alert("¡Has completado el juego!")
+            this.cronometro.parar();
         }
     }
 
