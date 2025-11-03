@@ -3,17 +3,38 @@ class Memoria {
 
     // Constructor sin parametros
     constructor(){
-        // Indica si el tablero está bloqueado a la interacción con el usuario
-        this.tablero_bloqueado = true;
-        // Indica cual es la primera carta a la que se le ha dado la vuelta
-        this.primera_carta = null;
-        // Indica cual es la segunda carta a la que se le ha dado la vuelta
-        this.segunda_carta = null;
+        this.reiniciarAtributos();
+
+        this.barajarCartas();
+
+        this.tablero_bloqueado = false;
     }
 
     // Voltea las carta pasada como parametro
     voltearCarta(carta){
+        // Comprobamos que la carta no esta deshabilitada, no esta volteada
+        // y que el tablero no esta bloqueado
+        if(carta.dataset.estado === "volteado" ||
+            carta.dataset.estado === "revelado" ||
+            this.tablero_bloqueado){
+                return;
+        }
+
+        // volteamos la carta
         carta.dataset.estado="volteado";
+
+        // si es la primera carta la guardamos
+        if(!this.primera_carta){
+            this.primera_carta = carta;
+            return;
+        }
+
+        // si es la segunda carta la guardamos
+        this.segunda_carta = carta;
+
+        this.tablero_bloqueado = true;
+
+        this.comprobarPareja();
     }
 
     // Baraja todas las cartas de tal forma que el orden de las cartas 
@@ -41,12 +62,13 @@ class Memoria {
     // Deshabilita las interacciones sobre las cartas de memoria que ya han 
     // sido emparejadas
     deshabilitarCartas(){
-        this.primera_carta.dataset.estado = "revelada";
+        this.primera_carta.dataset.estado = "revelada"; // ponemos las cartas a reveladas
         this.segunda_carta.dataset.estado = "revelada";
 
-        this.comprobarJuego();
+        this.comprobarJuego();                          // comprobamos el juego
 
-        this.reiniciarAtributos();
+        this.reiniciarAtributos();                      // reiniciamos los atributos
+        this.tablero_bloqueado = false;
     }
 
     // Comprueba si quedan cartas por emparejar en el juego o si ya han
@@ -58,6 +80,31 @@ class Memoria {
         if(todasReveladas){
             alert("¡Has completado el juego!")
         }
-
     }
+
+    // Método que pone bocabajo las dos últimas cartas descubiertas por el usuario
+    // cuando no son iguales
+    cubrirCartas(){
+        this.tablero_bloqueado = true;  // Poner el tablero bloqueado
+
+        // le damos la vuelta a las cartas con un retraso de 1.5s
+        setTimeout(() => {
+            this.primera_carta.removeAttribute("data-estado");
+            this.segunda_carta.removeAttribute("data-estado");
+
+            this.reiniciarAtributos();
+            this.tablero_bloqueado = false;
+        }, 1500);
+    }
+
+    // Comprueba si las cartas que han sido volteadas son iguales o no
+    // Si las tarjetas son iguales; se deshabilitan, sino se darán la vuelta
+    comprobarPareja(){
+        const carta1 = this.primera_carta.children[1].getAttribute("src");
+        const carta2 = this.segunda_carta.children[1].getAttribute("src");
+
+        carta1 === carta2 ? this.deshabilitarCartas() : this.cubrirCartas();
+    }
+
+
 }
