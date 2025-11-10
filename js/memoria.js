@@ -41,7 +41,7 @@ class Memoria {
         // - la carta no esta volteada
         // - y que el tablero no esta bloqueado
         if(carta.dataset.estado === "volteado" ||
-            carta.dataset.estado === "revelado" ||
+            carta.dataset.estado === "revelada" ||
             this.tablero_bloqueado){
                 return;
         }
@@ -53,6 +53,10 @@ class Memoria {
         if(!this.primera_carta){
             this.primera_carta = carta;
             return;
+        }
+
+        if( carta === this.primera_carta){
+            return; 
         }
 
         // si es la segunda carta la guardamos
