@@ -1,14 +1,10 @@
-// Poner temporal por defecto;
-// Date
-// try{
-//      temporal}
-// catch {
-//      date}
-// this.tiempo=0
-// this.inicio = temporal/date
-
+// Clase Cronometro para el manejo de eventos del Juego de cronometro
 class Cronometro{
 
+    /**
+     * Constructor sin parametros que inicializa los atributos
+     * de la clase
+     */
     constructor(){
         this.tiempo = 0;
         this.inicio = null;
@@ -16,9 +12,13 @@ class Cronometro{
         this.acumulado = 0;
     }
 
-    // Metodo que crea el atributo inicio de la clase cronometro 
-    // y actualiza el valor de this.corriendo invocando al metodo
-    // actualizar cada décima de segundo
+    /**
+     * Metodo que crea el atributo inicio de la clase cronometro
+     * y actualiza el valor de this.corriendo invocando al metodo
+     * actualizar cada décima de segundo
+     * 
+     * @returns 
+     */
     arrancar(){
         if(this.corriendo) return; 
 
@@ -37,12 +37,13 @@ class Cronometro{
         this.corriendo = setInterval(this.actualizar.bind(this), 100);
     }
 
-    // este metodo se tiene que invocar automáticamente 
-    // (de forma recurrente); este método se tiene que invocar 
-    // cada décima de segundo.
-    // utilizamos el método setInterval(metodo, tiempo)
-    // lo que nos devuelva este método debemos de guardar en un atributo llamado
-    // this.corriendo = setInterval(metodo, tiempo)
+    /**
+     * Método se tiene que invocar automáticamente (de forma recurrente); 
+     * este método se tiene que invocar cada décima de segundo.
+     * Utilizamos el método setInterval(metodo, tiempo) lo que nos 
+     * devuelva este método deberemos de guardalo en un atributo llamado
+     * this.corriendo = setInterval(metodo, tiempo)
+     */
     actualizar(){
         let ahora, diferencia;
 
@@ -63,8 +64,10 @@ class Cronometro{
         this.mostrar();
     }
 
-    // Muestra en un parrafo la cantidad de tiempo que ha contado 
-    // el cronómetro en un momento dado (en formato mm:ss:s)
+    /**
+     * Muestra en un parrafo la cantidad de tiempo que ha contado 
+     * el cronómetro en un momento dado (en formato mm:ss:s)
+     */
     mostrar(){
         const minutos = parseInt(this.tiempo / 60000);
         const segundos = parseInt((this.tiempo % 60000) / 1000);
@@ -79,14 +82,18 @@ class Cronometro{
         if(p) p.textContent = texto;
     }
 
-    // Método que detiene el cronometro
+    /**
+     * Método que detiene el cronometro
+     */
     parar(){
         clearInterval(this.corriendo);
         this.corriendo = null;
         this.acumulado = this.tiempo;
     }
 
-    // Método que pone el cronometro a 0
+    /**
+     *  Método que pone el cronometro a 0
+     */
     reiniciar(){
         clearInterval(this.corriendo);
         this.tiempo = 0;
