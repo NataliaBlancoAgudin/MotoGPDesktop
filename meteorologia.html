@@ -52,8 +52,11 @@
             var elementoP = document.querySelectorAll("p");
             elementoP[1].textContent += ` ${spielberg.getNombre()}`
             elementoP[2].textContent += ` ${spielberg.getPais()}`
+            
+            var main = document.querySelector("section");
+            main.innerHTML += spielberg.getInfoSecundaria();
 
-            document.write(spielberg.getInfoSecundaria());
+            // document.write(spielberg.getInfoSecundaria());
 
             spielberg.escribirCoordenadas();
         </script>

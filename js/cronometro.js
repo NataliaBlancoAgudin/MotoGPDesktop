@@ -1,15 +1,42 @@
 // Clase Cronometro para el manejo de eventos del Juego de cronometro
 class Cronometro{
+    // Atributos privados
+    #tiempo;
+    #inicio;
+    #corriendo;
+    #acumulado;
 
     /**
      * Constructor sin parametros que inicializa los atributos
      * de la clase
      */
     constructor(){
-        this.tiempo = 0;
-        this.inicio = null;
-        this.corriendo = null;
-        this.acumulado = 0;
+        this.#tiempo = 0;
+        this.#inicio = null;
+        this.#corriendo = null;
+        this.#acumulado = 0;
+
+        this.#inicializarEventos();
+    }
+
+    /**
+     * Inicializa los eventos de los botones de arrancar, parar y reiniciar
+     * del cronometro
+     * 
+     * @returns sale del método si estamos en el juego de memoria
+     */
+    #inicializarEventos(){
+        const botones = document.querySelectorAll("main button");
+        // comprobamos si hay botones; porque si no hay es que estamos
+        // en el juego de memoria
+        if(botones.length < 3){
+            return;
+        }
+
+        botones[0].addEventListener("click", () => this.arrancar());
+        botones[1].addEventListener("click", () => this.parar());
+        botones[2].addEventListener("click", () => this.reiniciar());
+        
     }
 
     /**
@@ -20,58 +47,81 @@ class Cronometro{
      * @returns 
      */
     arrancar(){
-        if(this.corriendo) return; 
+        if(this.#corriendo) return; 
 
         try{
             if(typeof Temporal !=="undefined" && Temporal.Now && Temporal.Instant){
-                this.inicio = Temporal.Now.instant();
+                this.#inicio = Temporal.Now.instant();
             }
             else {
                 throw new Error("Temporal no disponible");
             }
         } catch (e){
-            this.inicio = new Date();
+            this.#inicio = new Date();
         }
 
-        this.actualizar();
-        this.corriendo = setInterval(this.actualizar.bind(this), 100);
+        this.#actualizar();
+        this.#corriendo = setInterval(this.#actualizar.bind(this), 100);
     }
 
     /**
+     * Método que detiene el cronometro
+     */
+    parar(){
+        clearInterval(this.#corriendo);
+        this.#corriendo = null;
+        this.#acumulado = this.#tiempo;
+    }
+
+    /**
+     *  Método que pone el cronometro a 0
+     */
+    reiniciar(){
+        clearInterval(this.#corriendo);
+        this.#tiempo = 0;
+        this.#inicio = null;
+        this.#corriendo = null;
+        this.#acumulado = 0;
+        this.#mostrar();
+    }
+
+    /**
+     * Método PRIVADO:
      * Método se tiene que invocar automáticamente (de forma recurrente); 
      * este método se tiene que invocar cada décima de segundo.
      * Utilizamos el método setInterval(metodo, tiempo) lo que nos 
      * devuelva este método deberemos de guardalo en un atributo llamado
      * this.corriendo = setInterval(metodo, tiempo)
      */
-    actualizar(){
+    #actualizar(){
         let ahora, diferencia;
 
         try{
-            if(typeof Temporal !== "undefined" && this.inicio instanceof Temporal.Instant){
+            if(typeof Temporal !== "undefined" && this.#inicio instanceof Temporal.Instant){
                 ahora = Temporal.Now.instant();
-                diferencia = ahora.epochMilliseconds - this.inicio.epochMilliseconds;
+                diferencia = ahora.epochMilliseconds - this.#inicio.epochMilliseconds;
             } else {
                 ahora = new Date();
-                diferencia = ahora.getTime() - this.inicio.getTime();
+                diferencia = ahora.getTime() - this.#inicio.getTime();
             }
         } catch (e){
             ahora = new Date;
-            diferencia = ahora.getTime() - this.inicio.getTime();
+            diferencia = ahora.getTime() - this.#inicio.getTime();
         }
 
-        this.tiempo = this.acumulado + diferencia;
-        this.mostrar();
+        this.#tiempo = this.#acumulado + diferencia;
+        this.#mostrar();
     }
 
     /**
+     * Método PRIVADO:
      * Muestra en un parrafo la cantidad de tiempo que ha contado 
      * el cronómetro en un momento dado (en formato mm:ss:s)
      */
-    mostrar(){
-        const minutos = parseInt(this.tiempo / 60000);
-        const segundos = parseInt((this.tiempo % 60000) / 1000);
-        const decimas = parseInt((this.tiempo % 1000) / 100);
+    #mostrar(){
+        const minutos = parseInt(this.#tiempo / 60000);
+        const segundos = parseInt((this.#tiempo % 60000) / 1000);
+        const decimas = parseInt((this.#tiempo % 1000) / 100);
 
         const mm = String(minutos).padStart(2, "0");
         const ss = String(segundos).padStart(2, "0");
@@ -80,26 +130,5 @@ class Cronometro{
 
         const p = document.querySelector("main p");
         if(p) p.textContent = texto;
-    }
-
-    /**
-     * Método que detiene el cronometro
-     */
-    parar(){
-        clearInterval(this.corriendo);
-        this.corriendo = null;
-        this.acumulado = this.tiempo;
-    }
-
-    /**
-     *  Método que pone el cronometro a 0
-     */
-    reiniciar(){
-        clearInterval(this.corriendo);
-        this.tiempo = 0;
-        this.inicio = null;
-        this.corriendo = null;
-        this.acumulado = 0;
-        this.mostrar();
     }
 }

@@ -14,6 +14,20 @@ class Memoria {
 
         this.cronometro = new Cronometro();
         this.cronometro.arrancar();
+
+        this.inicializarEventos();
+    }
+
+    /**
+     * Inicializa los eventos de todas las cartas
+     */
+    inicializarEventos(){
+        const cartas = document.querySelectorAll("main article");
+        cartas.forEach( carta => {
+            carta.addEventListener("click", () => {
+                this.voltearCarta(carta);
+            });
+        });
     }
 
     /**
