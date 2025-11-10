@@ -1,5 +1,9 @@
 // Clase Memoria para el manejo de eventos del Juego de Memoria
 class Memoria {
+    #tablero_bloqueado;
+    #primera_carta;
+    #segunda_carta;
+    #cronometro;
 
     /**
      * Constructor sin parametros
@@ -8,20 +12,20 @@ class Memoria {
      *  Además crea un objeto cronómetro y lo arranca
      */
     constructor(){
-        this.reiniciarAtributos();
-        this.barajarCartas();
-        this.tablero_bloqueado = false;
+        this.#reiniciarAtributos();
+        this.#barajarCartas();
+        this.#tablero_bloqueado = false;
 
-        this.cronometro = new Cronometro();
-        this.cronometro.arrancar();
+        this.#cronometro = new Cronometro();
+        this.#cronometro.arrancar();
 
-        this.inicializarEventos();
+        this.#inicializarEventos();
     }
 
     /**
      * Inicializa los eventos de todas las cartas
      */
-    inicializarEventos(){
+    #inicializarEventos(){
         const cartas = document.querySelectorAll("main article");
         cartas.forEach( carta => {
             carta.addEventListener("click", () => {
@@ -42,7 +46,7 @@ class Memoria {
         // - y que el tablero no esta bloqueado
         if(carta.dataset.estado === "volteado" ||
             carta.dataset.estado === "revelada" ||
-            this.tablero_bloqueado){
+            this.#tablero_bloqueado){
                 return;
         }
 
@@ -50,28 +54,28 @@ class Memoria {
         carta.dataset.estado="volteado";
 
         // si es la primera carta la guardamos
-        if(!this.primera_carta){
-            this.primera_carta = carta;
+        if(!this.#primera_carta){
+            this.#primera_carta = carta;
             return;
         }
 
-        if( carta === this.primera_carta){
+        if( carta === this.#primera_carta){
             return; 
         }
 
         // si es la segunda carta la guardamos
-        this.segunda_carta = carta;
+        this.#segunda_carta = carta;
 
         // bloqueamos el tablero mientras comprobamos la pareja
-        this.tablero_bloqueado = true;
-        this.comprobarPareja();
+        this.#tablero_bloqueado = true;
+        this.#comprobarPareja();
     }
 
     /**
      * Baraja todas las cartas de tal forma que el orden de las cartas
      * en el juego sea siempre aleatorio
      */
-    barajarCartas(){
+    #barajarCartas(){
         const main = document.querySelector("main");
         // cogemos solo las cartas (en un array)
         const cartas = Array.from(main.querySelectorAll("article")); 
@@ -90,27 +94,27 @@ class Memoria {
      * Método que devuelve, al valor de inicialización, 
      * los atributos creados
      */
-    reiniciarAtributos(){
-        this.tablero_bloqueado = true;
-        this.primera_carta = null;
-        this.segunda_carta = null;
+    #reiniciarAtributos(){
+        this.#tablero_bloqueado = true;
+        this.#primera_carta = null;
+        this.#segunda_carta = null;
     }
 
     /**
      * Deshabilita las interacciones sobre las cartas de memoria que 
      * ya han sido emparejadas
      */
-    deshabilitarCartas(){
+    #deshabilitarCartas(){
         // ponemos las cartas a reveladas
-        this.primera_carta.dataset.estado = "revelada"; 
-        this.segunda_carta.dataset.estado = "revelada";
+        this.#primera_carta.dataset.estado = "revelada"; 
+        this.#segunda_carta.dataset.estado = "revelada";
 
         // comprobamos el juego
-        this.comprobarJuego();
+        this.#comprobarJuego();
 
         // reiniciamos los atributos y bloqueamos el tablero
-        this.reiniciarAtributos();
-        this.tablero_bloqueado = false;
+        this.#reiniciarAtributos();
+        this.#tablero_bloqueado = false;
     }
 
     /**
@@ -118,13 +122,13 @@ class Memoria {
      * sido descubiertas todas las parejas
      * Si han sido todas descubiertas parara el cronometro
      */
-    comprobarJuego(){
+    #comprobarJuego(){
         const cartas = document.querySelectorAll("main article");
         const todasReveladas = Array.from(cartas).every(carta => carta.dataset.estado === "revelada");
 
         // Si han sido todas reveladas paramos el cronometro
         if(todasReveladas){
-            this.cronometro.parar();
+            this.#cronometro.parar();
         }
     }
 
@@ -133,16 +137,16 @@ class Memoria {
      * por el usuario
      * Este método será llamado cuando las cartas no sean iguales
      */
-    cubrirCartas(){
-        this.tablero_bloqueado = true;  // Poner el tablero bloqueado
+    #cubrirCartas(){
+        this.#tablero_bloqueado = true;  // Poner el tablero bloqueado
 
         // le damos la vuelta a las cartas con un retraso de 1.5s
         setTimeout(() => {
-            this.primera_carta.removeAttribute("data-estado");
-            this.segunda_carta.removeAttribute("data-estado");
+            this.#primera_carta.removeAttribute("data-estado");
+            this.#segunda_carta.removeAttribute("data-estado");
 
-            this.reiniciarAtributos();
-            this.tablero_bloqueado = false;
+            this.#reiniciarAtributos();
+            this.#tablero_bloqueado = false;
         }, 1500);
     }
 
@@ -151,10 +155,10 @@ class Memoria {
      * Si las tarjetas son iguales; se deshabilitan, sino se darán la 
      * vuelta
      */
-    comprobarPareja(){
-        const carta1 = this.primera_carta.children[1].getAttribute("src");
-        const carta2 = this.segunda_carta.children[1].getAttribute("src");
+    #comprobarPareja(){
+        const carta1 = this.#primera_carta.children[1].getAttribute("src");
+        const carta2 = this.#segunda_carta.children[1].getAttribute("src");
 
-        carta1 === carta2 ? this.deshabilitarCartas() : this.cubrirCartas();
+        carta1 === carta2 ? this.#deshabilitarCartas() : this.#cubrirCartas();
     }
 }

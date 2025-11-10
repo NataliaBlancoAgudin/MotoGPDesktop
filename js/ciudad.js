@@ -1,37 +1,44 @@
 // Clase Ciudad que estará en el html meterologia integrado
 class Ciudad {
+    // atributos privados
+    #nombre;
+    #pais;
+    #gentilicio;
+    #poblacion;
+    #puntoCentral;
+
     // constructor de la clase
     constructor(nombre, pais, gentilicio){
-        this.nombre = nombre;
-        this.pais = pais;
-        this.gentilicio = gentilicio;
-        this.poblacion = 0;
-        this.puntoCentral = {lat:0, lon: 0};
+        this.#nombre = nombre;
+        this.#pais = pais;
+        this.#gentilicio = gentilicio;
+        this.#poblacion = 0;
+        this.#puntoCentral = {lat:0, lon: 0};
     }
 
     // Método para rellenar atributos secundarios
     setInfoSecundaria(poblacion, lat, lon){
-        this.poblacion = poblacion;
-        this.puntoCentral.lat = lat;
-        this.puntoCentral.lon = lon;
+        this.#poblacion = poblacion;
+        this.#puntoCentral.lat = lat;
+        this.#puntoCentral.lon = lon;
     }
 
     // Método que devuelve (en forma de texto) el nombre de la ciudad
     getNombre(){
-        return `${this.nombre}`;
+        return `${this.#nombre}`;
     }
 
     // Método que devuelve (en forma de texto) el pais
     getPais(){
-        return `${this.pais}`;
+        return `${this.#pais}`;
     }
 
     // Método que devuelve (en forma de lista no ordenada) el pais
     getInfoSecundaria(){
         return `
         <ul>
-            <li>Gentilicio: ${this.gentilicio}</li>
-            <li>Población: ${this.poblacion} habitantes</li>
+            <li>Gentilicio: ${this.#gentilicio}</li>
+            <li>Población: ${this.#poblacion} habitantes</li>
         </ul>
         `
     }
@@ -39,7 +46,7 @@ class Ciudad {
     // Método que escribe en el documento la información de las coordenadas del punto
     escribirCoordenadas(){
         const p = document.createElement("p");
-        p.textContent = `Coordenadas: Latitud ${this.puntoCentral.lat}, Longitud ${this.puntoCentral.lon}`
+        p.textContent = `Coordenadas: Latitud ${this.#puntoCentral.lat}, Longitud ${this.#puntoCentral.lon}`
 
         const main = document.querySelector("main");
         main.appendChild(p);
