@@ -42,4 +42,11 @@ nav {
     audio {
         width: 100%;
     }
+
+    /* ESPECIFICIDAD: 003*/
+    /* Estilos para las imagenes del carrusel de fotografias del inicio*/
+    article h2 + img {
+        width: 100%;
+        height: auto;
+    }
 } 

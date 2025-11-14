@@ -13,6 +13,11 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" /> <!-- Enlazar hoja de estilos -->
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" /> <!-- Enlazar hoja de estilos -->
     <link rel="icon" href="multimedia/favicon.ico" /> <!-- Favicon -->
+    <!-- JQuery 3.7.1-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+            crossorigin="anonymous"></script>
+    <script src="js/carrusel.js"></script>  <!-- carrusel de fotos-->
 </head>
 
 <body>
@@ -32,8 +37,15 @@
     </header>
 
     <main>
-        <p>En desarrollo</p>
+        <!-- Aquí estará el carrusel de fotografias del circuito -->
     </main>
+
+    <script>
+        $(document).ready(function() {
+            const carrusel = new Carrusel("RedBull Ring Spielberg");
+            carrusel.getFotografias();
+        });
+    </script>
 </body>
 
 </html>
