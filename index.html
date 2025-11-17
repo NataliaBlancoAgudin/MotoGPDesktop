@@ -18,6 +18,7 @@
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
             crossorigin="anonymous"></script>
     <script src="js/carrusel.js"></script>  <!-- carrusel de fotos-->
+    <script src="js/noticias.js"></script>  <!-- noticias -->
 </head>
 
 <body>
@@ -44,6 +45,9 @@
         $(document).ready(function() {
             const carrusel = new Carrusel("RedBull Ring Spielberg");
             carrusel.getFotografias();
+
+            const noticias = new Noticias("MotoGP");
+            noticias.buscar();
         });
     </script>
 </body>
