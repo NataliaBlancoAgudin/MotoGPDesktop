@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" /> <!-- Enlazar hoja de estilos -->
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" /> <!-- Enlazar hoja de estilos -->
     <link rel="icon" href="multimedia/favicon.ico" /> <!-- Favicon -->
+    <script src="js/circuito.js"></script> <!-- Circuito -->
 </head>
 
 <body>
@@ -35,9 +36,26 @@
 
     <!-- Migas de navegación -->
     <p>Estas en: <a href="index.html" title="Página de inicio">Inicio</a> >> <strong>Circuito</strong></p>
+    <main>
+        <h2>Circuito de MotoGP-Desktop</h2>
+        <section>
+            <p>Selecciona el archivo: </p>
+            <input type="file" accept=".html,.htm">
+        </section>
+        <script>
+            const circuito = new Circuito();
 
-    <h2>Circuito de MotoGP-Desktop</h2>
-    <p>En desarrollo</p>
+            const inputArchivo = document.querySelector('input[type="file"]');
+
+            inputArchivo.addEventListener('change', (evento) => {
+                const archivoSeleccionado = evento.target.files[0];
+                if (archivoSeleccionado) {
+                    circuito.leerArchivoHTML(archivoSeleccionado);
+                }
+            })
+
+        </script>
+    </main>
 </body>
 
 </html>
