@@ -4,6 +4,8 @@ class Circuito {
     constructor() {
         this.#comprobarApiFile();
         this.#archivo = null;
+
+        this.#inicializarEventos();
     }
 
     /**
@@ -19,10 +21,23 @@ class Circuito {
     }
 
     /**
+     * Inicializa el evento del botón
+     */
+    #inicializarEventos() {
+        const inputArchivo = document.querySelector('input[type="file"]');
+        inputArchivo.addEventListener('change', (evento) => {
+            const archivoSeleccionado = evento.target.files[0];
+            if (archivoSeleccionado) {
+                this.#leerArchivoHTML(archivoSeleccionado);
+            }
+        })
+    }
+
+    /**
      * Método que realizará la lectura del archivo `InfoCircuito.html`
      * y cargará su contenido
      */
-    leerArchivoHTML(archivo) {
+    #leerArchivoHTML(archivo) {
         this.#archivo = archivo;
         const lector = new FileReader();
 
