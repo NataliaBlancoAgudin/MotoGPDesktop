@@ -41,12 +41,21 @@
         <section>
             <p>Selecciona el archivo: </p>
             <input type="file" accept=".html,.htm">
-            
+
             <!-- Aquí ira la información del circuito del documento InfoCircuito.html-->
+        </section>
+
+        <h2>Archivo gráfico de altimetría</h2>
+        <section>
+            <p>Selecciona el archivo: </p>
+            <input type="file" accept=".svg">
+
+            <!-- Aquí ira el archivo svg-->
         </section>
 
         <script>
             const circuito = new Circuito();
+            const cargadorSVG = new CargadorSVG();
         </script>
     </main>
 </body>
