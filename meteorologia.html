@@ -14,6 +14,10 @@
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" /> <!-- Enlazar hoja de estilos -->
     <link rel="icon" href="multimedia/favicon.ico" /> <!-- Favicon -->
     <script src="js/ciudad.js"></script>
+    <!-- JQuery 3.7.1-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+            crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -59,6 +63,11 @@
             // document.write(spielberg.getInfoSecundaria());
 
             spielberg.escribirCoordenadas();
+
+            // CAMBIAR EL DIA
+            spielberg.getMeteorologiaCarrera("2024-08-20");
+
+            spielberg.getMeteorologiaEntrenos("2024-08-17","2024-08-20")
         </script>
     </main>
 </body>

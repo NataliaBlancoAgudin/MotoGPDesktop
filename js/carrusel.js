@@ -37,8 +37,8 @@ class Carrusel {
             format: "json"
         })
             .done((data) => {
-                this.procesarJSONFotografias(data);
-                this.mostrarFotografias();
+                this.#procesarJSONFotografias(data);
+                this.#mostrarFotografias();
             })
             .fail(function () {
                 console.error("Error al obtener las imágenes del Flickr");
@@ -52,7 +52,7 @@ class Carrusel {
      * 
      * @param {*} data 
      */
-    procesarJSONFotografias(data) {
+    #procesarJSONFotografias(data) {
         this.#fotos = [];
         let fotosNecesarias = 5; 
 
@@ -78,7 +78,7 @@ class Carrusel {
      * cambiando las imagenes automáticamente
      * @returns 
      */
-    mostrarFotografias() {
+    #mostrarFotografias() {
         if (this.#fotos.length === 0) return;
 
         const main = $("main");
@@ -94,13 +94,13 @@ class Carrusel {
         main.append(article);
 
         // cambiamos la fotografia cada 3s
-        setInterval(this.cambiarFotografia.bind(this), 3000);
+        setInterval(this.#cambiarFotografia.bind(this), 3000);
     }
 
     /**
      * Cambia las fotografías que tenemos en el array de fotos
      */
-    cambiarFotografia() {
+    #cambiarFotografia() {
         this.#actual = (this.#actual + 1) % this.#maximo;
         $("main img")
             .attr("src", this.#fotos[this.#actual]);
