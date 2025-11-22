@@ -25,7 +25,12 @@ class SVGGenerator:
 
     def _create_svg_content(self):
         """Crea el contenido SVG a partir de los elementos añadidos."""
-        svg_content = f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.width}" height="{self.height}">'
+        svg_content = (
+            f'<svg xmlns="http://www.w3.org/2000/svg" '
+            f'viewBox="0 0 {self.width} {self.height}" '
+            'preserveAspectRatio="xMidYMid meet">'
+)
+
         svg_content += "\n".join(self.svg_elements)
         svg_content += '</svg>'
         return svg_content
