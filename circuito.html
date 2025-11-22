@@ -14,6 +14,8 @@
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" /> <!-- Enlazar hoja de estilos -->
     <link rel="icon" href="multimedia/favicon.ico" /> <!-- Favicon -->
     <script src="js/circuito.js"></script> <!-- Circuito -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet"> <!-- MapBox CSS-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script> <!-- MapBox JS -->
 </head>
 
 <body>
@@ -37,25 +39,35 @@
     <!-- Migas de navegación -->
     <p>Estas en: <a href="index.html" title="Página de inicio">Inicio</a> >> <strong>Circuito</strong></p>
     <main>
-        <h2>Circuito de MotoGP-Desktop</h2>
         <section>
+            <h2>Circuito de MotoGP-Desktop</h2>
             <p>Selecciona el archivo: </p>
             <input type="file" accept=".html,.htm">
 
             <!-- Aquí ira la información del circuito del documento InfoCircuito.html-->
         </section>
 
-        <h2>Archivo gráfico de altimetría</h2>
         <section>
+            <h2>Archivo gráfico de altimetría</h2>
             <p>Selecciona el archivo: </p>
             <input type="file" accept=".svg">
 
             <!-- Aquí ira el archivo svg-->
         </section>
 
+        <section>
+            <h2>Mapa del Circuito</h2>
+            <p>Selecciona el archivo: </p>
+            <input type="file" accept=".kml">
+
+            <!-- Aquí ira el mapa dinámico -->
+            <div></div>
+        </section>
+
         <script>
             const circuito = new Circuito();
             const cargadorSVG = new CargadorSVG();
+            const cargadorKML = new CargadorKML();
         </script>
     </main>
 </body>
