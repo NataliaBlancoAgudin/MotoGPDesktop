@@ -1,3 +1,70 @@
+<?php
+session_start();
+
+// Clase cronometro 
+class Cronometro {
+    protected $tiempo;
+    private $inicio;
+
+    /**
+     * Constructor de la clase cronometro que inicializa el tiempo a 0
+     */
+    public function __construct(){
+        $this->tiempo = 0;
+    }
+
+    /**
+     * Método que crea el atributo inicio, marcando el momento
+     * temporal en el que se inicia el cronometro
+     */
+    public function arrancar(){
+        $this->inicio = microtime(true);
+    }
+
+    /**
+     * Método que toma una referencia del momento acutal y calcula
+     * la cantidad de tiempo que ha trascurrido
+     */
+    public function parar(){
+        $this->tiempo = microtime(true) - $this->inicio;
+    }
+
+    /**
+     * Método que muestra el cronometro en formato mm:ss.s
+     */
+    public function mostrar(){
+        $totalSegundos = $this->tiempo;
+
+        $min = floor($totalSegundos / 60);
+        $seg = floor($totalSegundos % 60);
+        $decima = floor(($totalSegundos - floor($totalSegundos)) * 10);
+
+        return sprintf("%02d:%02d.%d", $min, $seg, $decima);
+    }
+}
+
+// Creamos el cronometro si no existe en sesión
+if(!isset($_SESSION["cronometro"])) {
+    $_SESSION["cronometro"] = new Cronometro();
+}
+
+$crono = $_SESSION["cronometro"];
+$salida = "";
+
+// Gestión de los botones
+if(isset($_POST["arrancar"])) {
+    $crono->arrancar();
+}
+
+if(isset($_POST["parar"])) {
+    $crono->parar();
+}
+
+if(isset($_POST["mostrar"])) {
+    $salida = $crono->mostrar();
+}
+?>
+
 <!DOCTYPE HTML>
 
 <html lang="es">
@@ -37,40 +104,21 @@
     </header>
 
     <!-- Migas de navegación -->
-    <p>Estas en: <a href="index.html" title="Página de inicio">Inicio</a> >> <strong>Circuito</strong></p>
+    <p>Estas en: <a href="index.html" title="Página de inicio">Inicio</a> >> <strong>Cronómetro</strong></p>
     <main>
-        <h2>Circuito Red Bull Ring - Spielberg</h2>
-
         <section>
-            <p>Selecciona el archivo: </p>
-            <input type="file" accept=".html,.htm">
+            <h2>Cronómetro</h2>
 
-            <!-- Aquí ira la información del circuito del documento InfoCircuito.html-->
+            <form action="#" method="post">
+                <input type="submit" name="arrancar" value="Arrancar"/>
+                <input type="submit" name="parar" value="Parar"/>
+                <input type="submit" name="mostrar" value="Mostrar"/>
+            </form>
+
+            <?php if($salida !== ""): ?>
+                <p>Tiempo: <?= $salida ?><p>
+            <?php endif; ?>
         </section>
-
-        <section>
-            <h3>Archivo gráfico de altimetría</h2>
-            <p>Selecciona el archivo: </p>
-            <input type="file" accept=".svg">
-
-            <!-- Aquí ira el archivo svg-->
-        </section>
-
-        <section>
-            <h3>Mapa del Circuito</h2>
-            <p>Selecciona el archivo: </p>
-            <input type="file" accept=".kml">
-
-            <!-- Aquí ira el mapa dinámico -->
-            <div></div>
-        </section>
-
-        <script>
-            const circuito = new Circuito();
-            const cargadorSVG = new CargadorSVG();
-            const cargadorKML = new CargadorKML();
-        </script>
     </main>
 </body>
-
 </html>

@@ -61,6 +61,7 @@ class Circuito {
         const parser = new DOMParser();
         const docHTML = parser.parseFromString(contenidoHTML, "text/html");
 
+        // procesamos las imagenes y los videos
         const sources = docHTML.querySelectorAll("source");
         sources.forEach(source => {
             const srcOriginal = source.getAttribute("src");
@@ -79,6 +80,9 @@ class Circuito {
         const main = docHTML.querySelector("main");
 
         if (main) {
+            const h2 = main.querySelector("h2");
+            if(h2) h2.remove();
+            
             mainDestino.append(...main.childNodes);
         } else {
             mainDestino.appendChild("<p>No se encontró contenido válido</p>");
