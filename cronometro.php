@@ -72,10 +72,10 @@ if(isset($_POST["mostrar"])) {
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
-    <title>MotoGP Circuito</title> <!-- Titulo -->
+    <title>MotoGP Cronometro PHP</title> <!-- Titulo -->
     <meta name="author" content="Natalia Blanco Agudín" /> <!-- Autora -->
-    <meta name="description" content="Página del circuito de MotoGP" /> <!-- Descripcion-->
-    <meta name="keywords" content="MotoGP, Circuito" /> <!-- Palabras importantes-->
+    <meta name="description" content="Cronometro php de la aplicación" /> <!-- Descripcion-->
+    <meta name="keywords" content="MotoGP, Cronometro" /> <!-- Palabras importantes-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Ventana -->
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" /> <!-- Enlazar hoja de estilos -->
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" /> <!-- Enlazar hoja de estilos -->
