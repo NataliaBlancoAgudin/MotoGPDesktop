@@ -95,10 +95,10 @@ if(isset($_POST["mostrar"])) {
         <nav>
             <a href="index.html" title="Página de inicio">Inicio</a>
             <a href="piloto.html" title="Información del piloto">Piloto</a>
-            <a href="circuito.html" title="Información del circuito" class="active">Circuito</a>
+            <a href="circuito.html" title="Información del circuito">Circuito</a>
             <a href="meteorologia.html" title="Información de la meteorología">Meteorología</a>
             <a href="clasificaciones.php" title="Información de las clasificaciones">Clasificaciones</a>
-            <a href="juegos.html" title="Juegos de la aplicación">Juegos</a>
+            <a href="juegos.html" title="Juegos de la aplicación" class="active">Juegos</a>
             <a href="ayuda.html" title="Página de ayuda">Ayuda</a>
         </nav>
     </header>
