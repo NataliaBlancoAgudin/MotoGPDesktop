@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-12-2025 a las 13:26:57
+-- Tiempo de generación: 08-12-2025 a las 17:25:36
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -33,6 +33,15 @@ CREATE TABLE `dispositivos` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `dispositivos`
+--
+
+INSERT INTO `dispositivos` (`id`, `nombre`) VALUES
+(1, 'ordenador'),
+(2, 'tableta'),
+(3, 'movil');
 
 -- --------------------------------------------------------
 
@@ -116,7 +125,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `dispositivos`
 --
 ALTER TABLE `dispositivos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `observaciones`
@@ -128,6 +137,12 @@ ALTER TABLE `observaciones`
 -- AUTO_INCREMENT de la tabla `tests`
 --
 ALTER TABLE `tests`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --

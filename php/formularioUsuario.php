@@ -3,16 +3,23 @@
 session_start();
 require_once("conexion.php");
 
+$stmtDispositivos = $pdo->query("SELECT id, nombre FROM dispositivos");
+$dispositivos = $stmtDispositivos->fetchAll(PDO::FETCH_ASSOC);
+
 if(count($_POST) > 0){
     $profesion = $_POST["profesion"];
     $edad = $_POST["edad"];
     $genero = $_POST["genero"];
     $pericia = $_POST["pericia"];
+    $id_dispositivo = $_POST["dispositivo"];
 
     $stmt = $pdo->prepare("INSERT INTO usuarios (profesion, edad, genero, pericia_informatica) VALUES (?,?,?,?)");
     $stmt->execute([$profesion, $edad, $genero, $pericia]);
-
     $_SESSION["id_usuario"] = $pdo->lastInsertId();
+
+    $stmtTest = $pdo->prepare("INSERT INTO tests (id_usuario, id_dispositivo, tiempo, completado) VALUES (?,?,0,0)");
+    $stmtTest->execute([$_SESSION["id_usuario"], $id_dispositivo]);
+    $_SESSION["id_test"] = $pdo->lastInsertId();
 
     header("Location: formularioPrueba.php");
     exit;
@@ -64,6 +71,13 @@ if(count($_POST) > 0){
                 <option value="Hombre">Hombre</option>
                 <option value="Mujer">Mujer</option>
                 <option value="Otro">Otro</option>
+            </select>
+
+            <p>Dispositivo que vas a usar:</p>
+            <select name="dispositivo" required>
+                <?php foreach($dispositivos as $disp): ?>
+                    <option value="<?= $disp['id'] ?>"><?= htmlspecialchars($disp['nombre']) ?></option>
+                <?php endforeach; ?>
             </select>
 
             <p>Pericia informática (0-10)</p>
