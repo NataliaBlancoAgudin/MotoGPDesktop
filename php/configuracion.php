@@ -110,8 +110,8 @@ if(isset($_POST["exportar"])) {
     <meta name="description" content="Página de configuración de la base de datos" /> <!-- Descripcion-->
     <meta name="keywords" content="MotoGP, Configuración" /> <!-- Palabras importantes-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Ventana -->
-    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" /> <!-- Enlazar hoja de estilos -->
-    <link rel="stylesheet" type="text/css" href="estilo/layout.css" /> <!-- Enlazar hoja de estilos -->
+    <link rel="stylesheet" type="text/css" href="../estilo/estilo.css" /> <!-- Enlazar hoja de estilos -->
+    <link rel="stylesheet" type="text/css" href="../estilo/layout.css" /> <!-- Enlazar hoja de estilos -->
     <link rel="icon" href="multimedia/favicon.ico" /> <!-- Favicon -->
 </head>
 
