@@ -18,7 +18,7 @@ if(!isset($_SESSION["cronometro"]) || !$_SESSION["cronometro"] instanceof Cronom
 // PARAR CRONÓMETRO
 $cronometro = $_SESSION["cronometro"];
 $cronometro->parar();
-$tiempo = $cronometro->getTiempo();
+$tiempo = round($cronometro->getTiempo(), 2);
 
 // INSERTAR TEST EN BD
 $id_usuario = $_SESSION["id_usuario"];

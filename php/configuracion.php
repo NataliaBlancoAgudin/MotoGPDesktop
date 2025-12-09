@@ -122,7 +122,8 @@ if(isset($_POST["exportar"])) {
     </header>
 
     <!-- Migas de navegación -->
-    <p>Estas en: <a href="index.html" title="Página de inicio">Inicio</a> >> <strong>Configuración Test</strong></p>
+    <p>Estas en: <a href="../index.html" title="Página de inicio">Inicio</a> >> 
+        <a href="../juegos.html" title="Juegos de la Aplicacion">Juegos</a> >> <strong>Configuración Test</strong></p>
 
     <main>
         <form action="#" method="POST">

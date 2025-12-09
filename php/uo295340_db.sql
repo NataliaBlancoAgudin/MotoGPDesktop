@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-12-2025 a las 17:25:36
+-- Tiempo de generación: 09-12-2025 a las 12:18:47
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -65,7 +65,7 @@ CREATE TABLE `tests` (
   `id` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
   `id_dispositivo` int(11) NOT NULL,
-  `tiempo` int(11) NOT NULL,
+  `tiempo` decimal(10,2) NOT NULL,
   `completado` tinyint(1) NOT NULL,
   `comentarios` text NOT NULL,
   `propuestas` text NOT NULL,
