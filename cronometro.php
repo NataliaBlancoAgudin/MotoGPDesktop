@@ -1,6 +1,6 @@
 <?php
+require_once("php/cronometroClase.php");
 session_start();
-require_once("php/cronometroClase.php")
 
 // Creamos el cronometro si no existe en sesión
 if(!isset($_SESSION["cronometro"])) {
@@ -63,7 +63,8 @@ if(isset($_POST["mostrar"])) {
     </header>
 
     <!-- Migas de navegación -->
-    <p>Estas en: <a href="index.html" title="Página de inicio">Inicio</a> >> <strong>Cronómetro</strong></p>
+    <p>Estas en: <a href="index.html" title="Página de inicio">Inicio</a> >> 
+        <a href="juegos.html" title="Juegos de la Aplicacion">Juegos</a> >> <strong>Cronómetro</strong></p>
     <main>
         <section>
             <h2>Cronómetro</h2>
