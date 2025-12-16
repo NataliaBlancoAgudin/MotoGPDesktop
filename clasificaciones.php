@@ -73,11 +73,28 @@ $xml = $clasificacion->consultar();
         
         <?php if($xml): ?>
 
-            <?php $circuito = $xml->circuito; ?>
+            <?php 
+            $circuito = $xml->circuito; 
+            // Cambiamos el formato del tiempo para que se vea de la
+            // forma Minutos:Segundos:Milisegundos
+            $duracion = (string) $circuito->vencedor->duracion;
+
+            // Extraemos minutos y segundos con decimales
+            preg_match('/PT(\d+)M([\d\.]+)S/', $duracion, $matches);
+
+            $minutos = (int) $matches[1];
+            $segundos = (float) $matches[2];
+
+            $tiempoFormateado = sprintf(
+                "%02d:%06.3f",
+                $minutos,
+                $segundos
+            );
+            ?>
             <section>
                 <h3>Ganador de la carrera</h3>
                 <p>Nombre: <?= $circuito->vencedor->nombre ?></p>
-                <p>Tiempo: <?= $circuito->vencedor->duracion ?></p>
+                <p>Tiempo: <?= $tiempoFormateado ?></p>
             </section>
 
             <section>
