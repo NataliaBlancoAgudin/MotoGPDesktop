@@ -93,25 +93,35 @@ class Ciudad {
      * Método que procesa el json pasado como parametro para que sea
      * fácil de utilizar para otros metodos 
      * (como el mostrarMetereologiaCarrera)
+     * Filtra para mostrar solo las horas de las carrera
+     * (aprox 13:00 - 16:00)
      * @param {*} json 
      * @returns 
      */
     #procesarJSONCarrera(json) {
         const horas = json.hourly.time;
+        
+        const todosLosHorarios = horas.map((hora, i) => ({
+            hora: hora.split('T')[1],
+            temperatura: json.hourly.temperature_2m[i],
+            sensacion: json.hourly.apparent_temperature[i],
+            lluvia: json.hourly.rain[i],
+            humedad: json.hourly.relative_humidity_2m[i],
+            vientoVel: json.hourly.wind_speed_10m[i],
+            vientoDir: json.hourly.wind_direction_10m[i] 
+
+        }));
+
+        const datosFiltrados = todosLosHorarios.filter(dato => {
+            const horaNum = parseInt(dato.hora.split(':')[0]);
+            return horaNum >= 12 && horaNum <= 16;
+        });
 
         const procesado = {
             fecha: json.daily.time[0],
             salidaSol: json.daily.sunrise[0],
             puestaSol: json.daily.sunset[0],
-            horas: horas.map((hora, i) => ({
-                hora: hora.split('T')[1],
-                temperatura: json.hourly.temperature_2m[i],
-                sensacion: json.hourly.apparent_temperature[i],
-                lluvia: json.hourly.rain[i],
-                humedad: json.hourly.relative_humidity_2m[i],
-                vientoVel: json.hourly.wind_speed_10m[i],
-                vientoDir: json.hourly.wind_direction_10m[i]
-            }))
+            horas: datosFiltrados
         };
 
         return procesado;
