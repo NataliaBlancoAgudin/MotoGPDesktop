@@ -33,7 +33,7 @@ class Carrusel {
         // si hay algún error lo mostraremos por consola
         $.getJSON(url, {
             tags: this.#busqueda,
-            tagmode: "any",
+            tagmode: "all",
             format: "json"
         })
             .done((data) => {
@@ -84,10 +84,10 @@ class Carrusel {
         const main = $("main");
 
         const article = $("<article>");
-        const h2 = $("<h2>").text(`Imágenes del circuito de ${this.#busqueda}`);
+        const h2 = $("<h2>").text(`Imágenes del circuito de RedBull Ring`);
         const img = $("<img>")
                         .attr("src", this.#fotos[this.#actual])
-                        .attr("alt", `Imagen del circuito de ${this.#busqueda}`);
+                        .attr("alt", `Imagen del circuito de RedBull Ring`);
         
 
         article.append(h2, img);
