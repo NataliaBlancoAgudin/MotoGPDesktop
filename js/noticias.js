@@ -38,7 +38,7 @@ class Noticias {
 
     mostrarNoticias(noticias){
         const section = $("<section></section>");
-        section.append("<h2>Noticias recientes de MotoGP<h2>");
+        section.append("<h2>Noticias recientes de MotoGP</h2>");
 
         noticias.forEach(n => {
             const card = $("<article></article>");
