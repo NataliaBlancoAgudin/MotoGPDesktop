@@ -135,42 +135,28 @@ class Ciudad {
      */
     #mostrarMeteorologiaCarrera(datos) {
         const section = $("<section></section>");
-        section.append(`<h3>Metelogía día de la carrera (${datos.fecha})</h3>`);
+        // titulo
+        section.append(`<h3>Metelogía el día de la carrera (${datos.fecha}) - ${this.#nombre} (${this.#pais}</h3>`);
+
+        // datos generales
         section.append(`<p>Salida del sol: ${datos.salidaSol.split('T')[1]}</p>`);
         section.append(`<p>Puesta de sol: ${datos.puestaSol.split('T')[1]}</p>`);
 
-        const tabla = $(`
-            <table>
-                <caption>Metereología de la ciudad ${this.#nombre}</caption>
-                <tbody>
-                    <tr>
-                        <th scope="col" id="hora">Hora</th>
-                        <th scope="col" id="temperatura">Temperatura (°C)</th>
-                        <th scope="col" id="sensacion">Sensación Térmica (°C)</th>
-                        <th scope="col" id="lluvia">Lluvia (mm)</th>
-                        <th scope="col" id="humedad">Humedad (%)</th>
-                        <th scope="col" id="viento">Velocidad viento (km/h)</th>
-                        <th scope="col" id="direccion">Dirección viento (°)</th>
-                    </tr>
-                </tbody>
-            </table>
-        `);
-
         datos.horas.forEach(h => {
-            tabla.append(`
-                <tr>
-                    <td headers="hora">${h.hora}</td>
-                    <td headers="temperatura">${h.temperatura}</td>
-                    <td headers="sensacion">${h.sensacion}</td>
-                    <td headers="lluvia">${h.lluvia}</td>
-                    <td headers="humedad">${h.humedad}</td>
-                    <td headers="viento">${h.vientoVel}</td>
-                    <td headers="direccion">${h.vientoDir}</td>
-                </tr>
-            `);
+            section.append(`<p>Hora: ${h.hora}</p>`);
+
+            const ul = $("<ul></ul>");
+            ul.append(`<li>Temperatura (°C): ${h.temperatura}</li>`);
+            ul.append(`<li>Sensación términa (°C): ${h.sensacion}</li>`);
+            ul.append(`<li>Lluvia (mm): ${h.lluvia}</li>`);
+            ul.append(`<li>Humedad (%): ${h.humedad}</li>`);
+            ul.append(`<li>Velocidad viento (km/h): ${h.vientoVel}</li>`);
+            ul.append(`<li>Dirección viento (°): ${h.vientoDir}</li>`);
+
+            section.append(ul);
+
         });
 
-        section.append(tabla);
         $("main").append(section);
     }
 
@@ -248,36 +234,20 @@ class Ciudad {
         const section = $("<section></section>");
         section.append("<h3>Medias meteorológicas de los entrenamientos</h3>");
 
-        const tabla = $(`
-            <table>
-                <caption>Media diaria de entrenamientos</caption>
-                <tbody>
-                    <tr>
-                        <th scope="col" id="dia">Día</th>
-                        <th scope="col" id="temperatura">Temperatura (°C)</th>
-                        <th scope="col" id="lluvia">Lluvia (mm)</th>
-                        <th scope="col" id="humedad">Humedad (%)</th>
-                        <th scope="col" id="viento">Velocidad viento (km/h)</th>
-                    </tr>
-                </tbody>
-            </table>
-        `);
+        for(const fecha in medias) {
+            const datos = medias[fecha]
+            
+            section.append(`<p>Día: ${fecha}</p>`);
 
-        for(const dia in medias) {
-            const d = medias[dia];
+            const ul = $("<ul></ul>");
+            ul.append(`<li>Temperatura media (°C): ${datos.temperatura}`);
+            ul.append(`<li>Lluvia media (mm): ${datos.lluvia}`);
+            ul.append(`<li>Humedad media (%): ${datos.humedad}`);
+            ul.append(`<li>Viento medio (km/h): ${datos.viento}`);
 
-            tabla.append(`
-                <tr>
-                    <td headers="dia">${dia}</td>
-                    <td headers="temperatura">${d.temperatura}</td>
-                    <td headers="lluvia">${d.lluvia}</td>
-                    <td headers="humedad">${d.humedad}</td>
-                    <td headers="viento">${d.viento}</td>
-                </tr>
-            `);
+            section.append(ul);
+            
         }
-
-        section.append(tabla);
         $("main").append(section);
     }
 }
