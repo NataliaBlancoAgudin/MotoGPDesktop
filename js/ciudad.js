@@ -136,7 +136,7 @@ class Ciudad {
     #mostrarMeteorologiaCarrera(datos) {
         const section = $("<section></section>");
         // titulo
-        section.append(`<h3>Metelogía el día de la carrera (${datos.fecha}) - ${this.#nombre} (${this.#pais}</h3>`);
+        section.append(`<h3>Metereología del día de la carrera (${datos.fecha}) - ${this.#nombre} (${this.#pais}</h3>`);
 
         // datos generales
         section.append(`<p>Salida del sol: ${datos.salidaSol.split('T')[1]}</p>`);

@@ -60,7 +60,7 @@ if(count($_POST) > 0){
         <p>Antes de comenzar con el test introduce tus datos: </p>
 
         <form method="POST">
-            <p>Profesion:</p>
+            <p>Profesión:</p>
             <input type="text" name="profesion" required>
 
             <p>Edad:</p>
