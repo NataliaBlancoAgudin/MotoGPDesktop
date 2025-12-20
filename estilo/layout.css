@@ -57,6 +57,7 @@ section > div {
         height: auto;
     }
 
+    /* ESPECIFICIDAD: 002*/
     section > div {
         width: 100%;
         height: 50vh;

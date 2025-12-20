@@ -3,7 +3,8 @@
 
 /* Colores:
     - color fondo: #E6F0FF (azul clarito)
-    - color texto: #002b74 (azul oscuro)
+    - color texto: #000000 (negro)
+    - color encabezados: #1046a3 (azul)
     - color texto nav a activo: #FFAF7A (naranja clarito)
     - color fondo nav a encima: #011840 (azul muy oscuro)
     - color texto de a (http) sin visitar: #011840 (azul oscuro)
@@ -14,7 +15,7 @@
 
 /* CONTRASTES:
         Descripción:                            Color 1:                    Color 2:            Contrast Radio:
-      Página principal                      Fondo: #E6F0FF              Texto: #002b74              11.43:1
+      Página principal                      Fondo: #E6F0FF              Texto: #000000              18.27:1
       Barra de navegación (a no activo)     Fondo: #002b74              Texto: #E6F0FF              11.43:1
       Barra de navegación (a activo)        Fondo: #002b74              Texto: #FFAF7A              7.3:1
       Barra de navegación (a encima)        Fondo: #011840              Texto: #E6F0FF              15.15:1
@@ -30,7 +31,13 @@
 body {
     background-color: #E6F0FF;  /* Fondo: Azul clarito*/
     font-family: "Trebuchet MS", sans-serif;
-    color: #002b74              /* Texto: Azul oscuro*/
+    color: #000000              /* Texto: Azul oscuro*/
+}
+
+/* ESPECIFICIDAD: 001, 001, 001*/
+/* Reglas sobre los encabezados de la aplicación*/
+h1, h2, h3 {
+    color: #1046a3;
 }
 
 /* ESPECIFICIDAD: 001*/
