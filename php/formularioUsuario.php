@@ -67,14 +67,14 @@ if(count($_POST) > 0){
             <input type="text" name="edad" required>
 
             <p>Genero:</p>
-            <select name="genero" required>
+            <select name="genero">
                 <option value="Hombre">Hombre</option>
                 <option value="Mujer">Mujer</option>
                 <option value="Otro">Otro</option>
             </select>
 
             <p>Dispositivo que vas a usar:</p>
-            <select name="dispositivo" required>
+            <select name="dispositivo">
                 <?php foreach($dispositivos as $disp): ?>
                     <option value="<?= $disp['id'] ?>"><?= htmlspecialchars($disp['nombre']) ?></option>
                 <?php endforeach; ?>
