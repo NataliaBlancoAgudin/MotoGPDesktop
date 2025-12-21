@@ -1,0 +1,11 @@
+id,id_usuario,id_dispositivo,tiempo,completado,comentarios,propuestas,valoracion
+1,1,2,220.84,1,"La página se ve bien, no tengo ningún comentario","Ninguna propuesta",10
+2,2,1,591.31,1,"Me parece muy fácil de usar.","Añadir mas pilotos en la clasificación general, hasta el puesto 5",9
+3,3,2,384.90,1,"El color de los textos se confunde un poco con los colores de la página (no se diferencia los títulos del contenido en sí).","Cambiar la forma de los títulos para que se vean mejor.",7
+5,5,3,463.87,1,"Sale un scroll horizontal en el móvil. 
+La navegación ocupa mucho espacio en el móvil","Quitar un poco del espacio de la navegación.
+Hacer que la tabla del piloto se vea adecuadamente.",7
+6,6,1,611.45,1,"No se encuentran muy bien los apartados, porque no tiene mucho sentido que, por ejemplo, las definciones de conceptos de MotoGP estén en Piloto.","En la sección de Ayuda poner todas las secciones que aparecen en los documentos de manera visual y fácil de ver",8
+7,7,2,208.16,1,"Faltan tildes en el ""Test MotoGP"".
+No es muy intuitivo que la información de la ciudad esté en el apartado ""Meteorología""","Poner tildes, reestructurar apartados de meteorología.",9
+8,8,3,425.33,1,"El menú estaría mejor visualizado de un lado, en vez de en el centro","Poner el menu a un lado.",9
