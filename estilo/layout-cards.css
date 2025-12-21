@@ -1,6 +1,8 @@
 /* Natalia Blanco Agudín UO295340 */
 /* Estilos para el juego de memoria del proyecto MotoGP-Desktop */
 
+/* advertencia linea 0: redefinición column-gap y row-gap se produce
+en la linea 42*/
 /* ESPECIFICIDAD: 001*/
 main {
     display: grid;
@@ -31,8 +33,7 @@ main > p{
 
     /* ESPECIFICIDAD: 001*/
     main {
-        display: grid;
+        /* advertencia por redefinción por media query */
         grid-template-columns: repeat(2, 1fr);
-        justify-items: center;
     }
 }

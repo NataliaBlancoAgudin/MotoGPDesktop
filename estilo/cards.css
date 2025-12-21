@@ -30,6 +30,8 @@ article img {
     height: 100%;
     position: absolute;
     border-radius: 0.5em;
+    /* advertencia de color de fondo establecido y no color de primer plano
+    esta regla se establece en el selector siguiente (article h3) */
     background: #002b74;
     backface-visibility: hidden;
 }

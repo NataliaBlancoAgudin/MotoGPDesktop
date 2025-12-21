@@ -37,6 +37,8 @@ body {
 /* ESPECIFICIDAD: 001, 001, 001*/
 /* Reglas sobre los encabezados de la aplicación*/
 h1, h2, h3 {
+    /* advertencia de color de fonod porque se establece en el body (h2)*/
+    /* advertencia de color de fonod porque se establece en el body (h3)*/
     color: #1046a3;
 }
 
@@ -46,9 +48,10 @@ header {
     /* advertencia de color de texto porque se establece en la regla header a */
 }
 
-/* ESPECIFICIDAD: 002; ESPECIFICIDAD: 001*/
+/* ESPECIFICIDAD: 002, 001 */
 header a, h1{
     color: #E6F0FF;             /* Texto: Azul clarito*/
+    /* advertencia de redifinición de color porque el fondo se ha cambiado (header a)*/
     /* advertencia de color de fondo porque se establece en la regla header (header a)*/
     /* advertencia de color de fondo porque se establece en la regla header (h1)*/
     text-decoration-line: none;
@@ -128,7 +131,6 @@ table{
     border-collapse: collapse;
     margin: 1.5em 0;
     text-align: center;
-    word-wrap: break-word;
     overflow-wrap: break-word;
 }
 

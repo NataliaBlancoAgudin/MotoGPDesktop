@@ -53,40 +53,69 @@ if(!isset($_SESSION["cronometro"])) {
         <h2>Test MotoGP-Desktop</h2>
         <form action="procesarPrueba.php" method="POST">
             <ol>
-                <li>¿Cómo se llama el piloto de motociclismo portugues que 
+                <li>
+                    ¿Cómo se llama el piloto de motociclismo portugues que 
                     compite en la categoría reina de MotoGP con el equipo 
-                    Prima Pramac Yamaha?</li>
-                <input type="text" name="pregunta1" required>
+                    Prima Pramac Yamaha?
+                    <input type="text" name="pregunta1" required>
+                </li>
+                
+                <li>
+                    ¿Qué es el Pole Position?
+                    <input type="text" name="pregunta2" required>
+                </li>
+                
 
-                <li>¿Qué es el Pole Position?</li>
-                <input type="text" name="pregunta2" required>
+                <li>
+                    ¿En qué puesto quedo Marc Márquez en la 
+                    clasificación de este año de MotoGP?
+                    <input type="text" name="pregunta3" required>
+                </li>
+                
 
-                <li>¿En qué puesto quedo Marc Márquez en la 
-                    clasificación de este año de MotoGP?</li>
-                <input type="text" name="pregunta3" required>
+                <li>
+                    ¿En qué país está la ciudad de Spielberg donde
+                    se encuentra el circuito Red Bull Ring - Spielberg?
+                    <input type="text" name="pregunta4" required>
+                </li>
+                
 
-                <li>¿En qué país está la ciudad de Spielberg donde
-                    se encuentra el circuito Red Bull Ring - Spielberg?</li>
-                <input type="text" name="pregunta4" required>
+                <li>
+                    ¿Cuál es el gentilicio de la ciudad de Spielberg?
+                    <input type="text" name="pregunta5" required>
+                </li>
+                
 
-                <li>¿Cuál es el gentilicio de la ciudad de Spielberg?</li>
-                <input type="text" name="pregunta5" required>
+                <li>
+                    ¿Cuál es el dorsal de Miguel Oliveira?
+                    <input type="text" name="pregunta6" required>
+                </li>
+                
 
-                <li>¿Cuál es el dorsal de Miguel Oliveira?</li>
-                <input type="text" name="pregunta6" required>
+                <li>
+                    ¿Cuántos habitantes tiene la ciudad de Spielberg?
+                    <input type="text" name="pregunta7" required>
+                </li>
+                
 
-                <li>¿Cuántos habitantes tiene la ciudad de Spielberg?</li>
-                <input type="text" name="pregunta7" required>
+                <li>
+                    ¿Cuántas victorias tiene el piloto Miguel Oliveira?
+                    <input type="text" name="pregunta8" required>
+                </li>
+                
 
-                <li>¿Cuántas victorias tiene el piloto Miguel Oliveira?</li>
-                <input type="text" name="pregunta8" required>
+                <li>
+                    ¿En qué puesto quedo Francesco Bagnaia en la 
+                    clasificación de este año de MotoGP?
+                    <input type="text" name="pregunta9" required>
+                </li>
+                
 
-                <li>¿En qué puesto quedo Francesco Bagnaia en la 
-                    clasificación de este año de MotoGP?</li>
-                <input type="text" name="pregunta9" required>
-
-                <li>¿En qué año nació el piloto Miguel Oliveira?</li>
-                <input type="text" name="pregunta10" required>
+                <li>
+                    ¿En qué año nació el piloto Miguel Oliveira?
+                    <input type="text" name="pregunta10" required>
+                </li>
+                
             </ol>
 
             <input type="submit" value="Terminar prueba">
